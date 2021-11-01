@@ -1,0 +1,78 @@
+@import '../../styles/global.scss';
+
+.calendar-container {
+    width: 400px;
+    .calendar-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        h2 {
+            font-size: 1em;
+            color: $blackColor;
+        }
+        .arrow {
+            position: absolute;
+            top: 0px;
+            height: 100%;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                cursor: pointer;
+                color: $greyColor;
+            }
+        }
+        .arrow-right {
+            right: 0px;
+        }
+        .arrow-left {
+            left: 0px;
+        }
+    }
+    .calendar-header, .calendar-body{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+    .calendar-header {
+        margin-bottom: 5px;
+        border-top: 1px solid $lightGreyColor;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        .calendar-header-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $greyColor;
+        }
+    }
+
+    .calendar-body {
+        .calendar-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid $lightGreyColor;
+            border-radius: 5px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .active {
+            color: $orangeColor;
+        }
+        .enable {
+            color: $blueColor;
+        }
+        .disable {
+            color: $lightGreyColor;
+            cursor: no-drop;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+    }
+}

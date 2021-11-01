@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import { Calendar, DoubleCalendar } from './components';
 
 function App() {
   return (
     <div className="App">
-      Hello
+      <Calendar />
+      <DoubleCalendar />
     </div>
   );
 }

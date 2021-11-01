@@ -1,0 +1,10 @@
+@import '../../../styles/global.scss';
+
+.DoubleCalendar-container {
+    border: 1px solid $lightGreyColor;
+    border-radius: 4px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+}
