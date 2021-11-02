@@ -1,7 +1,7 @@
 @import '../../styles/global.scss';
 
 .calendar-container {
-    width: 400px;
+    min-width: 400px;
     .calendar-title {
         display: flex;
         justify-content: center;
