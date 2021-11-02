@@ -3,3 +3,12 @@ $blueColor: #5191FA;
 $orangeColor: #FA5636;
 $greyColor: #5E6D77;
 $blackColor: #1A2B48;
+
+@font-face {
+    font-family: 'Lato';
+    src: url(./fonts/Lato/Lato-Regular.ttf);
+}
+
+* {
+    font-family: 'Lato';
+}

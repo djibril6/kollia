@@ -53,12 +53,25 @@ interface ICalendarProps {
     hideLeftArrow?: boolean;
     hideRightArrow?: boolean;
     currentDate: Date;
+    range?: boolean;
+    value?: {startDate: Date, endDate: Date};
+    disabledDates?: Date[];
+    enableOnly?: boolean;
     onClickNext?: Function;
     onClickPrev?: Function;
-    onSelect?: (date: Date) => void;
+    onSelect?: (date: {startDate: Date, endDate: Date}) => void;
+    setItemLabelValue?: (date: Date) => string;
+    // onFistDateSelected?: (date: Date) => void;
 }
 function Calendar(props: ICalendarProps) {
     const [listOfDays, setListOfDays] = React.useState<number[]>([]);
+    const [selection, setSelection] = React.useState(false);
+    const [startDate, setStartDate] = React.useState<Date>();
+    const [endDate, setEndDate] = React.useState<Date>();
+
+    const resetData = () => {
+        setSelection(false)
+    }
 
     React.useEffect(() => {
         const lastDate = new Date(props.currentDate.getFullYear(), props.currentDate.getMonth() + 1, 0).getDate();
@@ -71,14 +84,64 @@ function Calendar(props: ICalendarProps) {
         const end = Array.from({length: total - list.length}, () => 0);
         list.push(...end);
         setListOfDays(list);
-    }, [props.currentDate])
+
+        if (props.value?.endDate === null || props.value?.startDate === null) {
+            resetData();
+        }
+    }, [props.currentDate, props.value])
+
+    // React.useEffect(()=> {
+    //     setSelection(!selection);
+    // }, [props.value])
 
     const getClassName = (item: number) => {
-        return item <= 0 ? " hidden" : " enable";
+        let className = props.enableOnly ? " disable": " enable";
+        if (item <= 0) {
+            className = " hidden";
+        } else if (props.disabledDates && props.disabledDates.length > 0) {
+            props.disabledDates.forEach(el => {
+                if (
+                    el.getFullYear() === props.currentDate.getFullYear() 
+                    && el.getMonth() === props.currentDate.getMonth()
+                    && el.getDate() === item
+                ) {
+                    className =  props.enableOnly ? " enable": " disable";
+                }
+            });
+        }
+        
+        const current = new Date(props.currentDate.getFullYear(), props.currentDate.getMonth(), item);
+        
+
+        if (props.value && props.value.startDate <= current && props.value.endDate >= current) {
+            className =  className === " disable" ? " disable": " selected";
+        }
+
+        if (
+            current.getFullYear() === new Date().getFullYear() 
+            && current.getMonth() === new Date().getMonth()
+            && current.getDate() === new Date().getDate()
+        ) {
+            className +=  " active";
+        }
+
+        return className;
     }
+
+    const reorderDate = (date1: Date, date2: Date) => {
+        return date1 < date2 ? {endDate: date2, startDate: date1}: {endDate: date1, startDate: date2};
+    };
     const handleDatePicked = (day: number) => {
         const date = new Date(props.currentDate.getFullYear(), props.currentDate.getMonth(), day);
-        props.onSelect && props.onSelect(date);
+        if (selection) {
+            setEndDate(date);
+            props.onSelect && props.onSelect(reorderDate(date, startDate!));
+        } else {
+            setStartDate(date);
+            props.onSelect && props.onSelect({endDate: date, startDate: date});
+            // props.onFistDateSelected && props.onFistDateSelected(date);
+        }
+        setSelection(!selection);
     }
     return (
         <div className="calendar-container">
@@ -102,7 +165,12 @@ function Calendar(props: ICalendarProps) {
                         key={idx} 
                         className={"calendar-item" + getClassName(item)}
                         onClick={() => handleDatePicked(item)}
-                    >{item}</div>
+                    >
+                        {item}
+                        {props.setItemLabelValue && <div className="calendar-item-extra">
+                            {props.setItemLabelValue(new Date(props.currentDate.getFullYear(), props.currentDate.getMonth(), item)) }
+                        </div>}
+                    </div>
                 ))}
             </div>
         </div>

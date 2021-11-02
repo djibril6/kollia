@@ -5,8 +5,8 @@ import { Calendar, DoubleCalendar } from './components';
 function App() {
   return (
     <div className="App">
-      <Calendar />
-      <DoubleCalendar />
+      <Calendar title="Title" setItemLabelValue={() => "1500 TL"} onSelect={value => console.log(value)} />
+      <DoubleCalendar title="Title" setItemLabelValue={() => "1500 TL"} onSelect={value => console.log(value)} />
     </div>
   );
 }

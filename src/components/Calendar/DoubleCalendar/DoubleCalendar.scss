@@ -8,3 +8,16 @@
     grid-template-columns: auto auto auto;
     gap: 50px;
 }
+.resset-btn {
+    position: relative;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    span {
+        text-decoration: underline;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+}
