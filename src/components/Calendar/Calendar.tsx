@@ -1,4 +1,5 @@
 import React from 'react';
+import { IActiveColor, IDisableColor, IEnableColor, IHeaderBorderColor, IHeaderBorderWidth, IHeaderColor, IHiddenColor, IInnerBorderColor, IInnerBorderRadius, IInnerBorderWidth, ISelectedColor, ITextColor } from '../../shared/interfaces';
 import './Calendar.scss';
 
 const months = [
@@ -49,7 +50,20 @@ const days = [
     { index: 5, label: 'Fr' },
     { index: 6, label: 'Sa' }
 ];
-interface ICalendarProps {
+interface ICalendarProps extends
+    ITextColor,
+    IHeaderColor,
+    IHeaderBorderColor,
+    IHeaderBorderWidth,
+    IInnerBorderColor,
+    IInnerBorderRadius,
+    IInnerBorderWidth,
+    IEnableColor,
+    IActiveColor,
+    IHiddenColor,
+    IDisableColor,
+    ISelectedColor
+{
     hideLeftArrow?: boolean;
     hideRightArrow?: boolean;
     currentDate: Date;
@@ -146,17 +160,45 @@ function Calendar(props: ICalendarProps) {
     return (
         <div className="calendar-container">
             <div className="calendar-title">
-                <h2>{months[props.currentDate.getMonth()].en} {props.currentDate.getFullYear()}</h2>
+                <h2 ref={el => {
+                    if (el) {
+                        el.style.color = props.textColor || "";
+                    }
+                }}>{months[props.currentDate.getMonth()].en} {props.currentDate.getFullYear()}</h2>
+
                 {!props.hideLeftArrow && <div className="arrow arrow-left">
-                    <span onClick={() => props.onClickPrev && props.onClickPrev()}>&#10094;</span>
+                    <span 
+                        onClick={() => props.onClickPrev && props.onClickPrev()}
+                        ref={el => {
+                            if (el) {
+                                el.style.color = props.headerColor || "";
+                            }
+                        }}
+                    >&#10094;</span>
                 </div>}
                 {!props.hideRightArrow && <div className="arrow arrow-right">
-                    <span onClick={() => props.onClickNext && props.onClickNext()}>&#10095;</span>
+                    <span 
+                        onClick={() => props.onClickNext && props.onClickNext()}
+                        ref={el => {
+                            if (el) {
+                                el.style.color = props.headerColor || "";
+                            }
+                        }}
+                    >&#10095;</span>
                 </div>}
             </div>
-            <div className="calendar-header">
+            <div className="calendar-header" ref={div => {
+                if (div) {
+                    div.style.borderColor = props.headerBorderColor || "";
+                    div.style.borderWidth = (props.headerBorderWidth || "1") + "px";
+                }
+            }}>
                 {days.map((day, idx) => (
-                    <div key={idx} className="calendar-header-item">{day.label}</div>
+                    <div key={idx} className="calendar-header-item" ref={el => {
+                        if (el) {
+                            el.style.color = props.headerColor || "";
+                        }
+                    }}>{day.label}</div>
                 ))}
             </div>
             <div className="calendar-body">
@@ -165,6 +207,36 @@ function Calendar(props: ICalendarProps) {
                         key={idx} 
                         className={"calendar-item" + getClassName(item)}
                         onClick={() => handleDatePicked(item)}
+                        ref={el => {
+                            if (el) {
+                                el.style.borderColor = props.innerBorderColor || "";
+                                el.style.borderRadius = (props.innerBorderRadius || "5") + "px";
+                                el.style.borderWidth = (props.innerBorderWidth || "1") + "px";
+
+                                switch (getClassName(item)) {
+                                    case " enable":
+                                        el.style.color = props.enableColor?.color || "";
+                                        break;
+                                    case " disable":
+                                        el.style.color = props.disableColor?.color || "";
+                                        break;
+                                    case " active":
+                                        el.style.color = props.activeColor || "black";
+                                        break;
+                                    case " hidden":
+                                        el.style.color = props.hiddenColor || "";
+                                        el.style.visibility = props.hiddenColor ? "visible" : "";
+                                        break;
+                                    case " selected":
+                                        el.style.color = props.selectedColor?.color || "";
+                                        el.style.backgroundColor = props.selectedColor?.backgroundColor || "";
+                                        break;
+                                
+                                    default:
+                                        break;
+                                }
+                            }
+                        }}
                     >
                         {item}
                         {props.setItemLabelValue && <div className="calendar-item-extra">

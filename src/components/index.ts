@@ -1,2 +1,2 @@
-export { default as Calendar } from './Calendar/SimpleCalendar/SimpleCalendar';
-export { default as DoubleCalendar } from './Calendar/DoubleCalendar/DoubleCalendar';
+export { default as DatePicker } from './Calendar/SimpleCalendar/SimpleCalendar';
+export { default as DoubleDatePicker } from './Calendar/DoubleCalendar/DoubleCalendar';

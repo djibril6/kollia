@@ -45,8 +45,20 @@ function DoubleCalendar(props: ICalendarProps) {
         return {startDate: min!, endDate: max!};
     }
     return (
-        <CalendarContainer title={props.title} legends={props.legend}>
-            <div className="DoubleCalendar-container">
+        <CalendarContainer 
+            title={props.title}
+            legends={props.legend}
+            enableColor={props.enableColor!}
+            disableColor={props.disableColor!}
+            textColor={props.textColor!}
+        >
+            <div className="DoubleCalendar-container" ref={el => {
+                if (el) {
+                    el.style.borderColor = props.outerBorderColor || "";
+                    el.style.borderWidth = (props.outerBorderWidth || "1") + "px";
+                    el.style.borderRadius = (props.outerBorderRadius || "4") + "px";
+                }
+            }}>
                 <Calendar
                     currentDate={currentDate}
                     value={{startDate: startDateLeft!, endDate: endDateLeft!}}
@@ -67,6 +79,18 @@ function DoubleCalendar(props: ICalendarProps) {
                         // }
                     }}
                     setItemLabelValue={props.setItemLabelValue}
+                    activeColor={props.activeColor!}
+                    disableColor={props.disableColor!}
+                    enableColor={props.enableColor!}
+                    headerBorderColor={props.headerBorderColor!}
+                    headerBorderWidth={props.headerBorderWidth!}
+                    headerColor={props.headerColor!}
+                    hiddenColor={props.hiddenColor!}
+                    innerBorderColor={props.innerBorderColor!}
+                    innerBorderRadius={props.innerBorderRadius!}
+                    innerBorderWidth={props.innerBorderWidth!}
+                    textColor={props.textColor!}
+                    selectedColor={props.selectedColor!}
                 />
                 <Calendar
                     value={{startDate: startDateRight!, endDate: endDateRight!}}
@@ -85,11 +109,27 @@ function DoubleCalendar(props: ICalendarProps) {
                         }
                     }}
                     setItemLabelValue={props.setItemLabelValue}
+                    activeColor={props.activeColor!}
+                    disableColor={props.disableColor!}
+                    enableColor={props.enableColor!}
+                    headerBorderColor={props.headerBorderColor!}
+                    headerBorderWidth={props.headerBorderWidth!}
+                    headerColor={props.headerColor!}
+                    hiddenColor={props.hiddenColor!}
+                    innerBorderColor={props.innerBorderColor!}
+                    innerBorderRadius={props.innerBorderRadius!}
+                    innerBorderWidth={props.innerBorderWidth!}
+                    textColor={props.textColor!}
+                    selectedColor={props.selectedColor!}
                 />
             </div>
 
             <div className="resset-btn">
-                <span onClick={() => resetData()}>Resset</span>
+                <span onClick={() => resetData()} ref={el => {
+                    if (el) {
+                        el.style.color = props.textColor || "";
+                    }
+                }}>Reset</span>
             </div>
         </CalendarContainer>
     )
