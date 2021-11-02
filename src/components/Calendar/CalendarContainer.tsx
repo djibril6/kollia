@@ -10,10 +10,11 @@ interface ICalendarContainerProps extends
     children: React.ReactNode;
     title?: string;
     legends?: string[];
+    className?: string;
 }
 function CalendarContainer(props: ICalendarContainerProps) {
     return (
-        <div className="CalendarContainer-container">
+        <div className={"CalendarContainer-container " + (props.className || "")}>
             <div className="calendar-container-header">
                 <h1 ref={el => {
                     if (el) {

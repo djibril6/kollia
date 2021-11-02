@@ -51,6 +51,7 @@ function DoubleCalendar(props: ICalendarProps) {
             enableColor={props.enableColor!}
             disableColor={props.disableColor!}
             textColor={props.textColor!}
+            className={props.className!}
         >
             <div className="DoubleCalendar-container" ref={el => {
                 if (el) {

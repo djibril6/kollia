@@ -25,6 +25,7 @@ export interface ICalendarProps extends
 {
     title?: string;
     legend?: string[];
+    className?: string;
     onSelect?: (value: {startDate: Date, endDate: Date}) => void;
     setItemLabelValue?: (date: Date) => string;
 }
@@ -45,6 +46,7 @@ function SimpleCalendar(props: ICalendarProps) {
             enableColor={props.enableColor!}
             disableColor={props.disableColor!}
             textColor={props.textColor!}
+            className={props.className!}
         >
             <div className="SimpleCalendar-container" ref={el => {
                 if (el) {
