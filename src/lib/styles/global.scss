@@ -9,7 +9,8 @@ $blackColor: #1A2B48;
     src: url(./fonts/Lato/Lato-Regular.ttf);
 }
 
-* {
+
+#datepickerGlobalContainer * {
     font-family: 'Lato';
     box-sizing: content-box !important;
     font-size: 15px;

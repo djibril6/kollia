@@ -14,7 +14,7 @@ interface ICalendarContainerProps extends
 }
 function CalendarContainer(props: ICalendarContainerProps) {
     return (
-        <div className={"CalendarContainer-container " + (props.className || "")}>
+        <div id="datepickerGlobalContainer" className={"CalendarContainer-container " + (props.className || "")}>
             <div className="calendar-container-header">
                 <h1 ref={el => {
                     if (el) {
