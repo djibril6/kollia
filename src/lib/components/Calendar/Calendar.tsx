@@ -69,8 +69,8 @@ interface ICalendarProps extends
     currentDate: Date;
     range?: boolean;
     value?: {startDate: Date, endDate: Date};
-    disabledDates?: Date[];
-    enableOnly?: boolean;
+    disabledDates: Date[];
+    enableOnly: boolean;
     onClickNext?: Function;
     onClickPrev?: Function;
     onSelect?: (date: {startDate: Date, endDate: Date}) => void;

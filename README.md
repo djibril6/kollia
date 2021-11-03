@@ -43,7 +43,7 @@ Here's an example of basic usage:
 | disableColor | {borderColor: string; color: string; textColor: string} | {borderColor: #dadcdd; color: #fff; textColor: #dadcdd} | color config of the disabled dates |
 | activeColor | string | #FA5636 | color of the current date |
 | hiddenColor | string | n/a | set color here to display date that are not in the current month |
-| selectedColor | {color: string; backgroundColor: string} | # | colors config of the selected dates |
+| selectedColor | {color: string; backgroundColor: string} | {color: #fff; backgroundColor: #5191FA} | colors config of the selected dates |
 | outerBorderColor | string | #dadcdd | border color of the calendar |
 | innerBorderColor | string | #dadcdd | border color of each date in the calendar |
 | headerBorderColor | string | #dadcdd | border color of the header bar |

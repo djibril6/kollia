@@ -16,8 +16,10 @@
     justify-content: flex-end;
     align-items: center;
     span {
+        all: initial;
         text-decoration: underline;
         cursor: pointer;
         margin-right: 20px;
+        font-family: 'Lato' !important;
     }
 }

@@ -10,7 +10,12 @@
         align-items: center;
 
         h1 {
+            all: initial;
             color: $blackColor;
+            font-family: 'Lato' !important;
+            font-size: 30px !important;
+            line-height: 1.3em !important;
+            margin-bottom: 10px;
         }
 
         .legend {

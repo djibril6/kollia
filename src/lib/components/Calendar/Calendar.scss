@@ -1,7 +1,7 @@
 @import '../../styles/global.scss';
 
 .calendar-container {
-    min-width: 400px;
+    // min-width: 400px;
     .calendar-title {
         display: flex;
         justify-content: center;
@@ -9,8 +9,12 @@
         position: relative;
 
         h2 {
+            all: initial;
             font-size: 1em !important;
             color: $blackColor !important;
+            font-family: 'Lato' !important;
+            padding: 8px;
+            // font-weight: 600;
         }
         .arrow {
             position: absolute;
@@ -22,6 +26,7 @@
             align-items: center;
 
             span {
+                all: initial;
                 cursor: pointer;
                 color: $greyColor;
             }
@@ -60,6 +65,7 @@
             border: 1px solid $lightGreyColor;
             border-radius: 5px;
             height: 40px;
+            width: 50px;
             cursor: pointer;
             // overflow: hidden;
             position: relative;
@@ -68,8 +74,8 @@
                 position: absolute;
                 width: 100%;
                 height: 25px;
-                padding: 8px;
-                bottom: -48px;
+                padding: 8px !important;
+                bottom: -48px !important;
                 background-color: rgba(48, 43, 43, 0.795);
                 z-index: 1;
                 color: #fff;

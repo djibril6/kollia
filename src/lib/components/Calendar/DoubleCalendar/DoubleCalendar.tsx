@@ -79,8 +79,8 @@ function DoubleCalendar(props: ICalendarProps) {
                         //     setEndDateLeft(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0))
                         // }
                     }}
-                    disabledDates={props.disabledDates}
-                    enableOnly={props.enableOnly}
+                    disabledDates={props.disabledDates!}
+                    enableOnly={props.enableOnly!}
                     setItemLabelValue={props.setItemLabelValue}
                     activeColor={props.activeColor!}
                     disableColor={props.disableColor!}
@@ -111,8 +111,8 @@ function DoubleCalendar(props: ICalendarProps) {
                             setStartDateRight(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))
                         }
                     }}
-                    disabledDates={props.disabledDates}
-                    enableOnly={props.enableOnly}
+                    disabledDates={props.disabledDates!}
+                    enableOnly={props.enableOnly!}
                     setItemLabelValue={props.setItemLabelValue}
                     activeColor={props.activeColor!}
                     disableColor={props.disableColor!}

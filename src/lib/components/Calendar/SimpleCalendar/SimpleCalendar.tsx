@@ -31,7 +31,7 @@ export interface ICalendarProps extends
     onSelect?: (value: {startDate: Date, endDate: Date}) => void;
     setItemLabelValue?: (date: Date) => string;
 }
-function SimpleCalendar(props: ICalendarProps) {
+export function SimpleCalendar(props: ICalendarProps) {
     const [currentDate, setCurrentDate] = React.useState(new Date());
     const [startDate, setStartDate] = React.useState<Date>();
     const [endDate, setEndDate] = React.useState<Date>();
@@ -68,8 +68,8 @@ function SimpleCalendar(props: ICalendarProps) {
                         props.onSelect && props.onSelect({startDate:date.startDate, endDate: date.endDate});
                     }}
                     setItemLabelValue={props.setItemLabelValue}
-                    disabledDates={props.disabledDates}
-                    enableOnly={props.enableOnly}
+                    disabledDates={props.disabledDates!}
+                    enableOnly={props.enableOnly!}
                     activeColor={props.activeColor!}
                     disableColor={props.disableColor!}
                     enableColor={props.enableColor!}
@@ -87,5 +87,3 @@ function SimpleCalendar(props: ICalendarProps) {
         </CalendarContainer>
     )
 }
-
-export default SimpleCalendar;
