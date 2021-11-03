@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITextColor, IEnableColor, IDisableColor, IOuterBorderColor, IOuterBorderRadius, IOuterBorderWidth, IActiveColor, IHeaderBorderColor, IHeaderBorderWidth, IHeaderColor, IHiddenColor, IInnerBorderColor, IInnerBorderRadius, IInnerBorderWidth, IInnerMargin, ISelectedColor } from '../../../shared/interfaces';
+import { ITextColor, IEnableColor, IDisableColor, IOuterBorderColor, IOuterBorderRadius, IOuterBorderWidth, IActiveColor, IHeaderBorderColor, IHeaderBorderWidth, IHeaderColor, IHiddenColor, IInnerBorderColor, IInnerBorderRadius, IInnerBorderWidth, IInnerMargin, ISelectedColor } from '../../../shared/types';
 import Calendar from '../Calendar';
 import CalendarContainer from '../CalendarContainer';
 import './SimpleCalendar.scss';

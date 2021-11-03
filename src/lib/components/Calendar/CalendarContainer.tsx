@@ -1,5 +1,5 @@
 import React from 'react';
-import { IDisableColor, IEnableColor, ITextColor } from '../../shared/interfaces';
+import { IDisableColor, IEnableColor, ITextColor } from '../../shared/types';
 import './CalendarContainer.scss';
 
 interface ICalendarContainerProps extends 

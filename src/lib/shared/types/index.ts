@@ -15,4 +15,4 @@ export type {
     IOuterBorderWidth,
     ISelectedColor,
     ITextColor
-} from './style.interface';
+} from './style.type';

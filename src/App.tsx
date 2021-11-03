@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { DatePicker, DoubleDatePicker } from './components';
+import { DatePicker, DoubleDatePicker } from './lib/components';
 
 function App() {
   return (
