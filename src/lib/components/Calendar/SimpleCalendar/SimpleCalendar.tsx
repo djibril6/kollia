@@ -26,6 +26,8 @@ export interface ICalendarProps extends
     title?: string;
     legend?: string[];
     className?: string;
+    disabledDates?: Date[];
+    enableOnly?: boolean;
     onSelect?: (value: {startDate: Date, endDate: Date}) => void;
     setItemLabelValue?: (date: Date) => string;
 }
@@ -66,7 +68,8 @@ function SimpleCalendar(props: ICalendarProps) {
                         props.onSelect && props.onSelect({startDate:date.startDate, endDate: date.endDate});
                     }}
                     setItemLabelValue={props.setItemLabelValue}
-                    // disabledDates={[new Date()]}
+                    disabledDates={props.disabledDates}
+                    enableOnly={props.enableOnly}
                     activeColor={props.activeColor!}
                     disableColor={props.disableColor!}
                     enableColor={props.enableColor!}
