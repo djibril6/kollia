@@ -46,7 +46,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "publish:npm": "rimraf dist && tsc && rollup -c rollup.config.js",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -79,6 +80,7 @@
     "rollup": "^2.59.0",
     "rollup-plugin-sass": "^1.2.9",
     "rollup-plugin-typescript2": "^0.30.0",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "husky": "^7.0.0"
   }
 }

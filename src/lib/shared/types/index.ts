@@ -16,3 +16,11 @@ export type {
     ISelectedColor,
     ITextColor,
 } from './style.type';
+
+export type {
+    IBackgroundColor,
+    IPaginateCurrentColor,
+    IPaginateColor,
+    IBorder,
+    ITitleStyle
+} from'./carousel.type';

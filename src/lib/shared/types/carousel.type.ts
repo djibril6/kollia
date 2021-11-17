@@ -10,3 +10,9 @@ export interface IPaginateColor {
 export interface IBorder {
   border: string;
 }
+export interface ITitleStyle {
+  titleStyle: {
+    color: string;
+    fontSize: number;
+  }
+}

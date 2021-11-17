@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   IBackgroundColor,
-  IBorder, IPaginateColor,
+  IBorder,
+  IPaginateColor,
   IPaginateCurrentColor
-} from '../types';
+} from '../../../shared/types';
 import './Horizontal.scss';
 
 interface IDescriptionProps {
@@ -23,7 +24,7 @@ interface IHorizontalState {
 
 const CarouselContext = React.createContext(0);
 
-export default class Horizontal extends React.Component<IHorizontalProps, IHorizontalState> {
+export default class Horizontal extends Component<IHorizontalProps, IHorizontalState> {
   private total: number = 0;
   constructor(props: IHorizontalProps) {
     super(props);
@@ -64,7 +65,7 @@ export default class Horizontal extends React.Component<IHorizontalProps, IHoriz
   render() {
     return (
       <CarouselContext.Provider value={this.state.current}>
-        <div id="CarouselGlobal" className="carouselContainer" ref={el => {
+        <div className="CarouselGlobal carouselContainer" ref={el => {
           if (el) {
             el.style.border = this.props.border!;
             el.style.backgroundColor = this.props.backgroundColor!;
