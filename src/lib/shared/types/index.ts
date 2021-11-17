@@ -14,5 +14,5 @@ export type {
     IOuterBorderRadius,
     IOuterBorderWidth,
     ISelectedColor,
-    ITextColor
+    ITextColor,
 } from './style.type';

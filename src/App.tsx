@@ -1,12 +1,22 @@
 import React from 'react';
 import './App.scss';
-import { DatePicker, DoubleDatePicker } from './lib/components';
+import { HorizontalCarousel } from './lib/components';
 
 function App() {
   return (
     <div className="App">
-      <DatePicker title="Title" setItemLabelValue={() => "1500 TL"} onSelect={value => console.log(value)} />
-      <DoubleDatePicker title="Title" setItemLabelValue={() => "1500 TL"} onSelect={value => console.log(value)} />
+      <HorizontalCarousel>
+          <HorizontalCarousel.Description>
+            <div>Description 1</div>
+            <div>Description 2</div>
+            <div>Description 3</div>
+          </HorizontalCarousel.Description>
+          <HorizontalCarousel.Main>
+            <div className="caroussel-image1">Image 1</div>
+            <div className="caroussel-image2">Image 2</div>
+            <div className="caroussel-image3">Image 3</div>
+          </HorizontalCarousel.Main>
+      </HorizontalCarousel>
     </div>
   );
 }

@@ -1,5 +1,18 @@
 import React from 'react';
-import { IActiveColor, IDisableColor, IEnableColor, IHeaderBorderColor, IHeaderBorderWidth, IHeaderColor, IHiddenColor, IInnerBorderColor, IInnerBorderRadius, IInnerBorderWidth, ISelectedColor, ITextColor } from '../../shared/types';
+import {
+    IActiveColor,
+    IDisableColor,
+    IEnableColor,
+    IHeaderBorderColor,
+    IHeaderBorderWidth,
+    IHeaderColor,
+    IHiddenColor,
+    IInnerBorderColor,
+    IInnerBorderRadius,
+    IInnerBorderWidth,
+    ISelectedColor,
+    ITextColor
+} from '../../shared/types';
 import './Calendar.scss';
 
 const months = [

@@ -1,0 +1,94 @@
+@import '../../../styles/global.scss';
+
+.carouselContainer {
+  border: 1px solid $greyColor;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 450px;
+
+  .pagination, .descriptions, .images {
+    height: 100%;
+  }
+
+  .pagination {
+    width: 8%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .paginate {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 3px;
+      height: min-content;
+      margin-right: 10px;
+      .navigation {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3px;
+        margin-bottom: 8px;
+        span {
+          all: initial;
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+        }
+      }
+      span {
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        background-color: $greyColor;
+        transition: background-color 1s;
+      }
+      span.current {
+        background-color: $blueColor;
+      }
+    }
+  }
+
+  .descriptions {
+    width: 32%;
+    position: relative;
+    .description {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 95%;
+      height: 95%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px;
+    }
+    .current {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .description, .image {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
+  }
+  .current {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .images {
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+    .image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
