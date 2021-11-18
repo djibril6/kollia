@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
-import { HorizontalCarousel, VerticalCarousel, GridCarousel } from './lib/components';
+// import { HorizontalCarousel, VerticalCarousel, GridCarousel } from './lib';
+
+import { GridCarousel,  HorizontalCarousel, VerticalCarousel } from 'kollia';
 
 const thumbs = [
   'https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg',

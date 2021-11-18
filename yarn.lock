@@ -7537,6 +7537,26 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
 
+kollia@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/kollia/-/kollia-0.4.2.tgz#be1cdbd6d1338450f83b95223f9ee2e825ddd3f0"
+  integrity sha512-yRW4Ewhvd/PnUbAtnZJPnrvkcrXf/F6D0ebt+X8Faz9I2AxGbnI1fOHRdGxSBPK4zbhtlGLUnOuJBn3wFmo3GA==
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+    "@testing-library/jest-dom" "^5.11.4"
+    "@testing-library/react" "^11.1.0"
+    "@testing-library/user-event" "^12.1.10"
+    "@types/jest" "^26.0.15"
+    "@types/node" "^12.0.0"
+    "@types/react" "^17.0.0"
+    "@types/react-dom" "^17.0.0"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-scripts "4.0.3"
+    typescript "^4.1.2"
+    web-vitals "^1.0.1"
+    webpack-cli "^4.9.1"
+
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
