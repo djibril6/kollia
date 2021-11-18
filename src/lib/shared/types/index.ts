@@ -22,5 +22,7 @@ export type {
     IPaginateCurrentColor,
     IPaginateColor,
     IBorder,
-    ITitleStyle
+    ITitleStyle,
+    IDimension,
+    ITransitionDelay
 } from'./carousel.type';

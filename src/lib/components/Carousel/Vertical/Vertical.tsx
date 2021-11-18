@@ -3,7 +3,9 @@ import {
   IBackgroundColor,
   IBorder,
   IPaginateColor,
-  IPaginateCurrentColor
+  IPaginateCurrentColor,
+  IDimension,
+  ITransitionDelay
 } from '../../../shared/types';
 import './Vertical.scss';
 
@@ -14,12 +16,12 @@ interface IVerticalProps extends
 Partial<IBackgroundColor>,
 Partial<IPaginateCurrentColor>,
 Partial<IPaginateColor>,
+Partial<IDimension>,
+Partial<ITransitionDelay>,
 Partial<IBorder>
 {
   children: React.ReactNode;
   thumbs?: string[];
-  transitionDelay?: number;
-  dimension?: {width: string; height: string;};
 }
 interface IVerticalState {
   current: number;

@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import './Grid.scss';
+import {
+  IBackgroundColor,
+  IBorder,
+  IPaginateColor,
+  IPaginateCurrentColor,
+  IDimension,
+  ITransitionDelay
+} from '../../../shared/types';
 
-interface IGridProps {
-  rows: number;
-  paginateCurrentColor?: string;
-  paginateColor?: string;
-  border?: string;
-  dimension?: {width: string; height: string;};
-  transitionDelay?: number;
+interface IGridProps extends
+Partial<IBackgroundColor>,
+Partial<IPaginateCurrentColor>,
+Partial<IPaginateColor>,
+Partial<IDimension>,
+Partial<ITransitionDelay>,
+Partial<IBorder>
+{
+  columns: number;
   children: React.ReactNode;
 }
 interface IGridState {
@@ -54,7 +64,7 @@ export default class Grid extends Component<IGridProps, IGridState> {
   }
 
   initialize() {
-    this.step = 100.7 / (this.props.rows || 3);
+    this.step = 100.7 / (this.props.columns || 3);
     this.total = React.Children.count(this.props.children);
     this.setState({
       base: 100 * React.Children.count(this.props.children)
@@ -62,7 +72,7 @@ export default class Grid extends Component<IGridProps, IGridState> {
   }
 
   getNumberOfPages() {
-    return this.total < this.props.rows? 1 : 1 + this.total - this.props.rows;
+    return this.total < this.props.columns? 1 : 1 + this.total - this.props.columns;
   }
 
   onNext() {
@@ -98,6 +108,7 @@ export default class Grid extends Component<IGridProps, IGridState> {
         <div className="CarouselGlobal carouselGridContainer" ref={el => {
             if (el) {
               el.style.border = this.props.border || "";
+              el.style.backgroundColor = this.props.backgroundColor || '#fff';
               el.style.width = this.props.dimension?.width || "100%";
               el.style.height = this.props.dimension?.height || "450px";
             }
@@ -105,7 +116,7 @@ export default class Grid extends Component<IGridProps, IGridState> {
           <div className="container" ref={el => {
             if (el) {
               el.style.left = this.state.left + "%";
-              el.style.width = Math.floor(this.state.base / (this.props.rows || 3)) + "%";
+              el.style.width = Math.floor(this.state.base / (this.props.columns || 3)) + "%";
             }
           }}>
             {this.props.children}

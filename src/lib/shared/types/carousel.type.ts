@@ -16,3 +16,9 @@ export interface ITitleStyle {
     fontSize: number;
   }
 }
+export interface IDimension {
+  dimension?: {width: string; height: string;};
+}
+export interface ITransitionDelay {
+  transitionDelay?: number;
+}

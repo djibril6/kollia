@@ -12,7 +12,7 @@ const thumbs = [
 function App() {
   return (
     <div className="App">
-      <GridCarousel rows={3} transitionDelay={3000}>
+      <GridCarousel columns={3} transitionDelay={3000}>
         <GridCarousel.Item>1</GridCarousel.Item>
         <GridCarousel.Item>2</GridCarousel.Item>
         <GridCarousel.Item>3</GridCarousel.Item>

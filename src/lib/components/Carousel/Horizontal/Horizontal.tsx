@@ -3,7 +3,9 @@ import {
   IBackgroundColor,
   IBorder,
   IPaginateColor,
-  IPaginateCurrentColor
+  IPaginateCurrentColor,
+  IDimension,
+  ITransitionDelay
 } from '../../../shared/types';
 import './Horizontal.scss';
 
@@ -14,11 +16,11 @@ interface IHorizontalProps extends
 Partial<IBackgroundColor>,
 Partial<IPaginateCurrentColor>,
 Partial<IPaginateColor>,
+Partial<IDimension>,
+Partial<ITransitionDelay>,
 Partial<IBorder>
 {
   children: React.ReactNode;
-  dimension?: {width: string; height: string;};
-  transitionDelay?: number;
 }
 interface IHorizontalState {
   current: number;
@@ -93,8 +95,8 @@ export default class Horizontal extends Component<IHorizontalProps, IHorizontalS
       <CarouselContext.Provider value={this.state.current}>
         <div className="CarouselGlobal carouselContainer" ref={el => {
           if (el) {
-            el.style.border = this.props.border!;
-            el.style.backgroundColor = this.props.backgroundColor!;
+            el.style.border = this.props.border || "";
+            el.style.backgroundColor = this.props.backgroundColor || "#fff";
             el.style.width = this.props.dimension?.width || "100%";
             el.style.height = this.props.dimension?.height || "450px";
           }
