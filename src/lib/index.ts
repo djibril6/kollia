@@ -1,1 +1,1 @@
-export { DatePicker, DoubleDatePicker } from './components';
+export { DatePicker, DoubleDatePicker, GridCarousel, HorizontalCarousel, VerticalCarousel } from './components';
