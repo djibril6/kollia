@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
-// import { HorizontalCarousel, VerticalCarousel, GridCarousel } from './lib';
+import { HorizontalCarousel, VerticalCarousel, GridCarousel } from './lib';
 
-import { GridCarousel,  HorizontalCarousel, VerticalCarousel } from 'kollia';
+// import { GridCarousel,  HorizontalCarousel, VerticalCarousel } from 'kollia';
 
 const thumbs = [
   'https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg',
@@ -12,7 +12,7 @@ const thumbs = [
 function App() {
   return (
     <div className="App">
-      <GridCarousel rows={3}>
+      <GridCarousel rows={3} transitionDelay={3000}>
         <GridCarousel.Item>1</GridCarousel.Item>
         <GridCarousel.Item>2</GridCarousel.Item>
         <GridCarousel.Item>3</GridCarousel.Item>
@@ -58,9 +58,9 @@ function App() {
             <div>Description 3</div>
           </HorizontalCarousel.Description>
           <HorizontalCarousel.Main>
-            <div className="caroussel-image1">Image 1</div>
-            <div className="caroussel-image2">Image 2</div>
-            <div className="caroussel-image3">Image 3</div>
+            <div className="carousel-image1">Image 1</div>
+            <div className="carousel-image2">Image 2</div>
+            <div className="carousel-image3">Image 3</div>
           </HorizontalCarousel.Main>
       </HorizontalCarousel>
       </div>

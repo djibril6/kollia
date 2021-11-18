@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Grid.scss';
 
-
 interface IGridProps {
   rows: number;
   paginateCurrentColor?: string;
   paginateColor?: string;
   border?: string;
   dimension?: {width: string; height: string;};
+  transitionDelay?: number;
   children: React.ReactNode;
 }
 interface IGridState {
@@ -16,8 +16,11 @@ interface IGridState {
   base: number;
 }
 export default class Grid extends Component<IGridProps, IGridState> {
+
   private step: number = 0;
   private total: number = 0;
+  private timer: any;
+
   constructor(props: IGridProps) {
     super(props);
     this.state = {left: 0, current: 0, base: 100 * React.Children.count(props.children)};
@@ -26,9 +29,27 @@ export default class Grid extends Component<IGridProps, IGridState> {
 
   static Item = Item;
 
+  componentDidMount() {
+    this.activateTransition();
+  }
+
   componentDidUpdate(previousProps: IGridProps, previousState: IGridState) {
     if (previousProps.children !== this.props.children) {
       this.initialize();
+    }
+    this.activateTransition();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  activateTransition() {
+    clearInterval(this.timer);
+    if (this.props.transitionDelay && this.props.transitionDelay >= 500) {
+      this.timer = setInterval(() => {
+        this.onNext();
+      }, this.props.transitionDelay);
     }
   }
 
@@ -47,8 +68,8 @@ export default class Grid extends Component<IGridProps, IGridState> {
   onNext() {
     const temp = this.state.left;
     this.setState({
-      left: temp <= -this.step * (this.getNumberOfPages() - 1) ? -this.step * (this.getNumberOfPages() - 1) : temp - this.step,
-      current: this.state.current >= this.getNumberOfPages() - 1 ? this.getNumberOfPages() - 1 : this.state.current + 1
+      left: temp <= -this.step * (this.getNumberOfPages() - 1) ? 0 : temp - this.step,
+      current: this.state.current >= this.getNumberOfPages() - 1 ? 0 : this.state.current + 1
     });
   }
 

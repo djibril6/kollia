@@ -18,6 +18,7 @@ Partial<IBorder>
 {
   children: React.ReactNode;
   dimension?: {width: string; height: string;};
+  transitionDelay?: number;
 }
 interface IHorizontalState {
   current: number;
@@ -26,7 +27,10 @@ interface IHorizontalState {
 const CarouselContext = React.createContext(0);
 
 export default class Horizontal extends Component<IHorizontalProps, IHorizontalState> {
+
   private total: number = 0;
+  private timer: any;
+
   constructor(props: IHorizontalProps) {
     super(props);
     this.state = {current: 0};
@@ -34,17 +38,38 @@ export default class Horizontal extends Component<IHorizontalProps, IHorizontalS
     this.total = React.Children.count(props.children);
   }
 
+  static Description = Description;
+  static Main = Main;
+
+  componentDidMount() {
+    this.activateTransition();
+  }
+
+  componentDidUpdate() {
+    this.activateTransition();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  activateTransition() {
+    clearInterval(this.timer);
+    if (this.props.transitionDelay && this.props.transitionDelay >= 500) {
+      this.timer = setInterval(() => {
+        this.onNext();
+      }, this.props.transitionDelay);
+    }
+  }
+
   isCurrent(index: number) {
     return index === this.state.current;
   };
 
-  static Description = Description;
-  static Main = Main;
-
   onNext() {
     const temp = this.state.current;
     this.setState({
-      current: temp >= this.total - 1 ? 0 : temp + 1
+      current: temp >= this.total ? 0 : temp + 1
     });
   };
 

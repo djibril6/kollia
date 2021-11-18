@@ -18,6 +18,7 @@ Partial<IBorder>
 {
   children: React.ReactNode;
   thumbs?: string[];
+  transitionDelay?: number;
   dimension?: {width: string; height: string;};
 }
 interface IVerticalState {
@@ -27,6 +28,7 @@ export class Vertical extends Component<IVerticalProps, IVerticalState> {
 
   private total: number = 0;
   private children: any;
+  private timer: any;
   constructor(props: IVerticalProps) {
     super(props);
     this.state = {current: 0};
@@ -48,6 +50,27 @@ export class Vertical extends Component<IVerticalProps, IVerticalState> {
   static Item = Item;
   static Main = Main;
   static Description = Description;
+
+  componentDidMount() {
+    this.activateTransition();
+  }
+
+  componentDidUpdate() {
+    this.activateTransition();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  activateTransition() {
+    clearInterval(this.timer);
+    if (this.props.transitionDelay && this.props.transitionDelay >= 500) {
+      this.timer = setInterval(() => {
+        this.onNext();
+      }, this.props.transitionDelay);
+    }
+  }
 
   isCurrent(index: number) {
     return index === this.state.current;
