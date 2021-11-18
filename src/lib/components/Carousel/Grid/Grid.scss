@@ -1,0 +1,74 @@
+.carouselGridContainer {
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  .container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 99%;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    transition: left 1s;
+    .item {
+      flex: 1;
+      margin-left: 15px;
+      position: relative;
+    }
+    .item:first-child {
+      margin-left: 0px;
+    }
+  }
+  .arrow {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+    span {
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+  .arrow-left {
+    left: 8px;
+  }
+  .arrow-right {
+    right: 8px;
+  }
+}
+.carouselGridContainer:hover {
+  .arrow {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.carouselGridPagination {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin-right: 7px;
+  }
+}
+
+@media (max-width: 991px) {
+  .carouselGridContainer {
+    height: 300px !important;
+    .arrow {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

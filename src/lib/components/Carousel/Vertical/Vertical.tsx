@@ -18,6 +18,7 @@ Partial<IBorder>
 {
   children: React.ReactNode;
   thumbs?: string[];
+  dimension?: {width: string; height: string;};
 }
 interface IVerticalState {
   current: number;
@@ -85,6 +86,8 @@ export class Vertical extends Component<IVerticalProps, IVerticalState> {
           if (el) {
             el.style.border = this.props.border || '';
             el.style.backgroundColor = this.props.backgroundColor || '#fff';
+            el.style.width = this.props.dimension?.width || "100%";
+            el.style.height = this.props.dimension?.height || "450px";
           }
         }}>
 

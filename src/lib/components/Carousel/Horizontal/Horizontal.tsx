@@ -17,6 +17,7 @@ Partial<IPaginateColor>,
 Partial<IBorder>
 {
   children: React.ReactNode;
+  dimension?: {width: string; height: string;};
 }
 interface IHorizontalState {
   current: number;
@@ -69,6 +70,8 @@ export default class Horizontal extends Component<IHorizontalProps, IHorizontalS
           if (el) {
             el.style.border = this.props.border!;
             el.style.backgroundColor = this.props.backgroundColor!;
+            el.style.width = this.props.dimension?.width || "100%";
+            el.style.height = this.props.dimension?.height || "450px";
           }
         }}>
           <div className="pagination">

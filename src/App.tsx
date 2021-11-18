@@ -1,15 +1,22 @@
 import React from 'react';
 import './App.scss';
-import { HorizontalCarousel, VerticalCarousel } from './lib/components';
+import { HorizontalCarousel, VerticalCarousel, GridCarousel } from './lib/components';
 
 const thumbs = [
   'https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg',
-  'https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg',
-  'https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg',
+  'https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/couple-man-woman-lake_SOSL19064_N8Bqv6hfvow_us.jpg',
+  'https://m.foolcdn.com/media/affiliates/images/couple_shopping_online.width-1200.jpg',
 ];
 function App() {
   return (
     <div className="App">
+      <GridCarousel rows={3}>
+        <GridCarousel.Item>1</GridCarousel.Item>
+        <GridCarousel.Item>2</GridCarousel.Item>
+        <GridCarousel.Item>3</GridCarousel.Item>
+        <GridCarousel.Item>4</GridCarousel.Item>
+        <GridCarousel.Item>5</GridCarousel.Item>
+      </GridCarousel>
       <div>
         <VerticalCarousel thumbs={thumbs}>
           <VerticalCarousel.Item title="Discover new places">
@@ -23,7 +30,7 @@ function App() {
 
           <VerticalCarousel.Item title="Meet more people">
             <VerticalCarousel.Main>
-              <img src="https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg" alt="d" />
+              <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/couple-man-woman-lake_SOSL19064_N8Bqv6hfvow_us.jpg" alt="d" />
             </VerticalCarousel.Main>
             <VerticalCarousel.Description>
               Djib  <br /> bkallkjdl f <br />jkl fdjlfjdsljfsf
@@ -32,7 +39,7 @@ function App() {
 
           <VerticalCarousel.Item title="Learn other's cultures">
             <VerticalCarousel.Main>
-              <img src="https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg" alt="d" />
+              <img src="https://m.foolcdn.com/media/affiliates/images/couple_shopping_online.width-1200.jpg" alt="d" />
             </VerticalCarousel.Main>
             <VerticalCarousel.Description>
               ISSS  <br /> bkallkjdl f <br />jkl fdjlfjdsljfsf

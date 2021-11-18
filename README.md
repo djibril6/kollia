@@ -30,6 +30,8 @@ Here's an example of basic usage:
 
 ## Documentation
 
+### DatePicker
+
 | Prop  | Type   | Default | Description            |
 |-------|--------|---------|------------------------|
 | title | string | n/a     | Title of the component |
@@ -53,6 +55,8 @@ Here's an example of basic usage:
 | headerBorderWidth | number | 1 | border width of the header bar|
 | disabledDates | Date[] | n/a | list of date to enable or disable dependind of the value of the `enableOnly` props |
 | enableOnly | boolean | false | if true enable only the date provided in `disabledDates` props. All other dates will be disabled |
+
+### Carousel
 
 ## Author
 
