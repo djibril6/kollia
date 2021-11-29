@@ -24,5 +24,7 @@ export type {
     IBorder,
     ITitleStyle,
     IDimension,
-    ITransitionDelay
+    ITransitionDelay,
+    IArrowColor,
+    IArrowSize
 } from'./carousel.type';

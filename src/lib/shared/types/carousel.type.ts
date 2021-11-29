@@ -22,3 +22,9 @@ export interface IDimension {
 export interface ITransitionDelay {
   transitionDelay?: number;
 }
+export interface IArrowColor {
+  arrowColor: string;
+}
+export interface IArrowSize {
+  arrowSize: string;
+}

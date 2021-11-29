@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { HorizontalCarousel, VerticalCarousel, GridCarousel } from './lib';
+import { HorizontalCarousel, VerticalCarousel, GridCarousel, Stepper } from './lib';
 
 // import { GridCarousel,  HorizontalCarousel, VerticalCarousel } from 'kollia';
 
@@ -10,9 +10,49 @@ const thumbs = [
   'https://m.foolcdn.com/media/affiliates/images/couple_shopping_online.width-1200.jpg',
 ];
 function App() {
+  const [current, setCurrent] = React.useState(1);
+
+  function onNext() {
+    setCurrent(current + 1);
+  }
+
+  function onPrev() {
+    setCurrent(current - 1);
+  }
   return (
     <div className="App">
-      <GridCarousel columns={3} transitionDelay={3000}>
+      <Stepper current={current}>
+        <Stepper.Item>
+          dfoashfdsalf <br />jojfoh <br />
+
+          <div className="navigation">
+            <button onClick={() => onPrev()}>Previous</button>
+            <button onClick={() => onNext()}>Next</button>
+          </div>
+        </Stepper.Item>
+
+        <Stepper.Item>
+          Dijvrirl <br />jojfoh <br />
+          <div className="navigation">
+            <button onClick={() => onPrev()}>Previous</button>
+            <button onClick={() => onNext()}>Next</button>
+          </div>
+        </Stepper.Item>
+
+        <Stepper.Item>
+          Bon ben allons y <br />jojfoh <br />
+        </Stepper.Item>
+
+        <Stepper.Footer>
+          <div className="navigation">
+            <button onClick={() => onPrev()}>Previous</button>
+            <button onClick={() => onNext()}>Next</button>
+          </div>
+        </Stepper.Footer>
+        
+      </Stepper>
+
+      <GridCarousel columns={3}>
         <GridCarousel.Item>1</GridCarousel.Item>
         <GridCarousel.Item>2</GridCarousel.Item>
         <GridCarousel.Item>3</GridCarousel.Item>
@@ -25,9 +65,9 @@ function App() {
             <VerticalCarousel.Main>
               <img src="https://www.discover.com/content/dam/dfs/student-loans/hero/homebanner/home-hero-girl-rocks.jpg" alt="d" />
             </VerticalCarousel.Main>
-            <VerticalCarousel.Description>
+            {/* <VerticalCarousel.Description>
               blajljadf  <br /> bkallkjdl f <br />jkl fdjlfjdsljfsf
-            </VerticalCarousel.Description>
+            </VerticalCarousel.Description> */}
           </VerticalCarousel.Item>
 
           <VerticalCarousel.Item title="Meet more people">

@@ -5,7 +5,9 @@ import {
   IPaginateColor,
   IPaginateCurrentColor,
   IDimension,
-  ITransitionDelay
+  ITransitionDelay,
+  IArrowColor,
+  IArrowSize
 } from '../../../shared/types';
 import './Vertical.scss';
 
@@ -18,7 +20,9 @@ Partial<IPaginateCurrentColor>,
 Partial<IPaginateColor>,
 Partial<IDimension>,
 Partial<ITransitionDelay>,
-Partial<IBorder>
+Partial<IBorder>,
+Partial<IArrowColor>,
+Partial<IArrowSize>
 {
   children: React.ReactNode;
   thumbs?: string[];
@@ -132,10 +136,20 @@ export class Vertical extends Component<IVerticalProps, IVerticalState> {
             {this.children}
 
             <div className="leftArrowArea">
-              <span onClick={() => this.onPrev()}>&#10094;</span>
+              <span className="arrow" onClick={() => this.onPrev()} ref={el => {
+                if (el) {
+                  el.style.color = this.props.arrowColor || "#000";
+                  el.style.fontSize = this.props.arrowSize || "30px";
+                }
+              }}>&#10094;</span>
             </div>
             <div className="rightArrowArea">
-              <span onClick={() => this.onNext()}>&#10095;</span>
+              <span className="arrow" onClick={() => this.onNext()} ref={el => {
+                if (el) {
+                  el.style.color = this.props.arrowColor || "#000";
+                  el.style.fontSize = this.props.arrowSize || "30px";
+                }
+              }}>&#10095;</span>
             </div>
           </div>
 
@@ -203,13 +217,13 @@ function Item(props: IItemProps) {
             el.style.fontSize = (props.titleStyle?.fontSize || '20') + 'px';
           }
         }}>{props.title || ""}</h1>
-        <div className="description" ref={el => {
+        {children[1] && <div className="description" ref={el => {
           if (el) {
             el.style.backgroundColor = props.descriptionBackground || "rgba(255, 255, 255, 0.542)";
           }
         }}>
           {children[1]}
-        </div>
+        </div>}
       </div>
     </div>
   );

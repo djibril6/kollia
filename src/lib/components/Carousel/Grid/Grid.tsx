@@ -6,7 +6,9 @@ import {
   IPaginateColor,
   IPaginateCurrentColor,
   IDimension,
-  ITransitionDelay
+  ITransitionDelay,
+  IArrowColor,
+  IArrowSize
 } from '../../../shared/types';
 
 interface IGridProps extends
@@ -15,7 +17,9 @@ Partial<IPaginateCurrentColor>,
 Partial<IPaginateColor>,
 Partial<IDimension>,
 Partial<ITransitionDelay>,
-Partial<IBorder>
+Partial<IBorder>,
+Partial<IArrowColor>,
+Partial<IArrowSize>
 {
   columns: number;
   children: React.ReactNode;
@@ -123,10 +127,20 @@ export default class Grid extends Component<IGridProps, IGridState> {
           </div>
 
           <div className="arrow arrow-left" onClick={() => this.onPrev()}>
-            <span>&#10094;</span>
+            <span ref={el => {
+                if (el) {
+                  el.style.color = this.props.arrowColor || "#000";
+                  el.style.fontSize = this.props.arrowSize || "30px";
+                }
+              }}>&#10094;</span>
           </div>
           <div className="arrow arrow-right" onClick={() => this.onNext()}>
-            <span>&#10095;</span>
+            <span ref={el => {
+                if (el) {
+                  el.style.color = this.props.arrowColor || "#000";
+                  el.style.fontSize = this.props.arrowSize || "30px";
+                }
+              }}>&#10095;</span>
           </div>
         </div>
         <div className="carouselGridPagination">

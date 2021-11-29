@@ -1,0 +1,74 @@
+@import '../../styles/global.scss';
+
+.stepperContainer {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .step-ball {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 1s, color 1s;
+      label {
+        position: absolute;
+        bottom: -20px;
+        color: black;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .progress {
+      width: 30%;
+      height: 2px;
+      position: relative;
+      .line, .value {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+      }
+      .line {
+        width: 100%;
+      }
+      .value {
+        width: 0%;
+        transition: width .5s;
+      }
+      .activated {
+        width: 100% !important;
+      }
+    }
+  }
+  
+  .body {
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+    .item {
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0.7s, opacity 0.7s;
+    }
+    .activated {
+      opacity: 1;
+      visibility: visible;
+    }
+    .navigation {
+      position: absolute;
+      right: 0px;
+    }
+  }
+}
